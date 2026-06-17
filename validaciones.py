@@ -1,11 +1,17 @@
 def pedir_texto(mensaje):
     while True:
-        dato = input(mensaje).strip()
+        texto = input(mensaje).strip()
 
-        if dato:
-            return dato
+        if not texto:
+            print("Error: el campo no puede estar vacío.")
+            continue
 
-        print("Error: el campo no puede estar vacío.")
+        # Permite letras, espacios y acentos
+        if not all(caracter.isalpha() or caracter.isspace() for caracter in texto):
+            print("Error: solo se permiten letras.")
+            continue
+
+        return texto.title()
 
 
 def pedir_entero_positivo(mensaje):
