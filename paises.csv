@@ -1,0 +1,27 @@
+nombre,poblacion,superficie,continente
+Argentina,45376763,2780400,America
+Brasil,213993437,8515767,America
+Chile,19493184,756102,America
+Uruguay,3485152,176215,America
+Paraguay,7132538,406752,America
+Bolivia,12079472,1098581,America
+Peru,33715471,1285216,America
+Colombia,51516562,1141748,America
+Mexico,126705138,1964375,America
+Canada,38929902,9984670,America
+Estados Unidos,331893745,9833517,America
+Espana,47415750,505990,Europa
+Francia,67749632,643801,Europa
+Alemania,83149300,357022,Europa
+Italia,59109700,301340,Europa
+Reino Unido,67281039,243610,Europa
+Portugal,10305564,92212,Europa
+Japon,125800000,377975,Asia
+China,1412360000,9596961,Asia
+India,1407563842,3287263,Asia
+Corea del Sur,51744876,100210,Asia
+Egipto,109262178,1002450,Africa
+Sudafrica,59308690,1221037,Africa
+Nigeria,213401323,923768,Africa
+Australia,25687041,7692024,Oceania
+Nueva Zelanda,5122600,268021,Oceania
