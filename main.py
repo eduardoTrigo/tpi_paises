@@ -17,32 +17,30 @@ from estadisticas import mostrar_estadisticas
 def agregar_pais(paises):
     print("\nAGREGAR PAÍS")
 
-   nombre = pedir_texto("Ingrese nombre del país: ")
+    nombre = pedir_texto("Ingrese nombre del país: ")
 
-for pais in paises:
-    if pais["nombre"].lower() == nombre.lower():
-        print("Error: ese país ya existe.")
+    if nombre is None:
         return
-            
-    poblacion = pedir_entero_positivo("Ingrese población: ")
-    superficie = pedir_entero_positivo("Ingrese superficie en km²: ")
-    continente = pedir_texto("Ingrese continente: ")
 
-    nuevo_pais = {
-        "nombre": nombre,
-        "poblacion": poblacion,
-        "superficie": superficie,
-        "continente": continente
-    }
-
-    paises.append(nuevo_pais)
-    guardar_paises(paises)
-
-    print("País agregado correctamente.")
+    for pais in paises:
+        if pais["nombre"].lower() == nombre.lower():
+            print("Error: ese país ya existe.")
+            return
 
     poblacion = pedir_entero_positivo("Ingrese población: ")
+
+    if poblacion is None:
+        return
+
     superficie = pedir_entero_positivo("Ingrese superficie en km²: ")
+
+    if superficie is None:
+        return
+
     continente = pedir_texto("Ingrese continente: ")
+
+    if continente is None:
+        return
 
     nuevo_pais = {
         "nombre": nombre,
@@ -60,7 +58,12 @@ for pais in paises:
 def actualizar_pais(paises):
     print("\nACTUALIZAR PAÍS")
 
-    nombre = pedir_texto("Ingrese el nombre exacto del país a actualizar: ").lower()
+    nombre = pedir_texto("Ingrese el nombre exacto del país a actualizar:")
+
+    if nombre is None:
+        return
+
+    nombre = nombre.lower()
 
     pais_encontrado = None
 
@@ -75,9 +78,14 @@ def actualizar_pais(paises):
 
     print("País encontrado:", pais_encontrado["nombre"])
 
-    nueva_poblacion = pedir_entero_positivo("Ingrese nueva población: ")
-    nueva_superficie = pedir_entero_positivo("Ingrese nueva superficie en km²: ")
+    nueva_poblacion = pedir_entero_positivo("Ingrese nueva población:")
+    if nueva_poblacion is None:
+        return
 
+    nueva_superficie = pedir_entero_positivo("Ingrese nueva superficie en km²: ")
+    if nueva_superficie is None:
+        return
+    
     pais_encontrado["poblacion"] = nueva_poblacion
     pais_encontrado["superficie"] = nueva_superficie
 
@@ -150,25 +158,18 @@ def main():
 
         if opcion == "1":
             mostrar_lista_paises(paises)
-
         elif opcion == "2":
             agregar_pais(paises)
-
         elif opcion == "3":
             actualizar_pais(paises)
-
         elif opcion == "4":
             buscar_pais_por_nombre(paises)
-
         elif opcion == "5":
             menu_filtros(paises)
-
         elif opcion == "6":
             menu_ordenamientos(paises)
-
         elif opcion == "7":
             mostrar_estadisticas(paises)
-
         elif opcion == "8":
             print("Programa finalizado. Muchas gracias.")
             break
