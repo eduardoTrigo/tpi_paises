@@ -17,7 +17,29 @@ from estadisticas import mostrar_estadisticas
 def agregar_pais(paises):
     print("\nAGREGAR PAÍS")
 
-    nombre = pedir_texto("Ingrese nombre del país: ")
+   nombre = pedir_texto("Ingrese nombre del país: ")
+
+for pais in paises:
+    if pais["nombre"].lower() == nombre.lower():
+        print("Error: ese país ya existe.")
+        return
+            
+    poblacion = pedir_entero_positivo("Ingrese población: ")
+    superficie = pedir_entero_positivo("Ingrese superficie en km²: ")
+    continente = pedir_texto("Ingrese continente: ")
+
+    nuevo_pais = {
+        "nombre": nombre,
+        "poblacion": poblacion,
+        "superficie": superficie,
+        "continente": continente
+    }
+
+    paises.append(nuevo_pais)
+    guardar_paises(paises)
+
+    print("País agregado correctamente.")
+
     poblacion = pedir_entero_positivo("Ingrese población: ")
     superficie = pedir_entero_positivo("Ingrese superficie en km²: ")
     continente = pedir_texto("Ingrese continente: ")
